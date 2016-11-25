@@ -8,6 +8,9 @@ public class Usuario implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	public static final String uMaster="omar_mr";
+	public static final String pwdMaster="0mAr_3R";
+	
 	private int usuarioId;
 	private String usuarioName;
 	private String usuarioPwd;

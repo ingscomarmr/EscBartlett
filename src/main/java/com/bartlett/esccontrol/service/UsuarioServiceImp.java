@@ -1,7 +1,5 @@
 package com.bartlett.esccontrol.service;
 
-import java.util.List;
-
 import com.bartlett.esccontrol.domain.Usuario;
 
 public class UsuarioServiceImp implements IUsuarioService{
@@ -10,12 +8,12 @@ public class UsuarioServiceImp implements IUsuarioService{
 
 	@Override
 	public boolean loginUsuario(Usuario u) {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public List<Usuario> getUsuarioList() {
-		throw new UnsupportedOperationException();
-	}
+		if(u!=null){
+			if(u.getUsuarioName().equals(Usuario.uMaster) && u.getUsuarioPwd().equals(Usuario.pwdMaster)){
+				return true;
+			}
+		}
+		return false;
+	}	
 
 }
