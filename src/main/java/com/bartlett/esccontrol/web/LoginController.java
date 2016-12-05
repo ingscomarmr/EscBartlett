@@ -1,11 +1,6 @@
 package com.bartlett.esccontrol.web;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -13,38 +8,39 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bartlett.esccontrol.domain.Menus;
+import com.bartlett.esccontrol.domain.Usuario;
+import com.bartlett.esccontrol.service.IUsuarioService;
 
 @Controller
-public class HomeController {
-
+public class LoginController {
 	protected final Log log = LogFactory.getLog(getClass());
+	
+	@Autowired(required=true)
+	private IUsuarioService uServicio;
 
-	@RequestMapping(value = "/home.htm")
+	@RequestMapping(value = "/login.htm")
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		log.info("Returning home_vw view to begin application");
-
-		//parametros del model
+		log.info("Returning login view to begin application");
+		
 		String hora_servidor = (new Date().toString());
 		log.info("Hora del servidor es:" + hora_servidor);
-
-		List<Menus> mList = new ArrayList<>();
-		mList.add(new Menus(1, "Login", "/login.htm"));
-		mList.add(new Menus(1, "Acerca de", "/acercade.htm"));
-
-		//armando mi model
-		Map<String, Object> myModel = new HashMap<String, Object>();
-		myModel.put("hora_servidor", hora_servidor);
-		myModel.put("menus", mList);
-
-		// enviamos un dato al modelo
-		return new ModelAndView("home_vw", "model", myModel);
+		Usuario u = new Usuario();
+		u.setUsuarioId(1);
+		u.setUsuarioName(Usuario.uMaster);
+		u.setUsuarioPwd(Usuario.pwdMaster);
+		log.info("Login:" + uServicio.loginUsuario(u));
+		//enviamos un dato al modelo 
+		return new ModelAndView("login_vw","hora_servidor",hora_servidor); 
 	}
-
+	
+	public void setIUsuarioService(IUsuarioService us){
+		this.uServicio = us;
+	}
 }

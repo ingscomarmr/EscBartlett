@@ -2,6 +2,9 @@ package com.bartlett.esccontrol.domain;
 
 import java.io.Serializable;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class Usuario implements Serializable{
 	/**
 	 * 
