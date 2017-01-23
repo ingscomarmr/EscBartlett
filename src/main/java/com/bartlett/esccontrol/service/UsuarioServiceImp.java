@@ -1,16 +1,27 @@
 package com.bartlett.esccontrol.service;
 
 import com.bartlett.esccontrol.domain.Usuario;
-
+import com.bartlett.esccontrol.repository.UsuarioDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-@Service
 @Component
-public class UsuarioServiceImp implements IUsuarioService{
+@Transactional
+public class UsuarioServiceImp implements UsuarioService{
 
 	private static final long serialVersionUID = 1L;
+	
+	@Autowired
+	public UsuarioDao usuarioDao;
+	
 
+	public void setProductDao(UsuarioDao usuarioDao) {
+        this.usuarioDao = usuarioDao;
+    }
+	
 	@Override
 	public boolean loginUsuario(Usuario u) {
 		if(u!=null){
@@ -19,6 +30,23 @@ public class UsuarioServiceImp implements IUsuarioService{
 			}
 		}
 		return false;
+	}
+
+
+	@Override
+	public Usuario getUsuarioById(int id) {
+		return this.usuarioDao.findUsuarioById(id);
+	}
+
+	@Transactional(readOnly=false)
+	@Override
+	public void eliminar(int id) {
+		usuarioDao.delete(id);
+	}
+
+	@Override
+	public Usuario guardar(Usuario u) {
+		return usuarioDao.save(u);
 	}	
 
 }

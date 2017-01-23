@@ -1,109 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Dashboard">
+<meta name="keyword"
+	content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+
 <%@ include file="/WEB-INF/views/include.jsp"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home - <fmt:message key="profesor.app.home.title" /></title>
-<%@ include file="/WEB-INF/views/assets_header.jsp"%>
+<title><fmt:message key="home.titulo.escuela"/></title>
+
 </head>
+
 <body>
 
-	<div class="container">
-
-		<div class="masthead">
-			<nav>
-			<ul class="nav nav-justified">
-				<li class="active scroll"><a href="#">Nosotros</a></li>
-				<li><a class="scroll" href="#mision-div">Misi&oacute;n</a></li>
-				<li><a class="scroll" href="#vision-div">Visi&oacute;n</a></li>
-				<li><a class="scroll" href="#">Historia</a></li>
-				<li><a class="scroll" href="#">Contacto</a></li>
-				<li><a href="#">Login</a></li>
-			</ul>
-			</nav>
-		</div>
-
-		<!-- Jumbotron -->
-		<div class="jumbotron">
-			<h1>CEC Sur Bachilleres</h1>
-			<img alt=""
-				src="${pageContext.request.contextPath}/resources/img/logo_cecsur.png">
-			<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas
-				eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-				condimentum nibh, ut fermentum massa justo sit amet.</p>
-		</div>
-
-
-		<!-- Example row of columns -->
-		<div class="row">
-			<div class="col-lg-4">
-				<h2>Safari bug warning!</h2>
-				<p class="text-danger">As of v9.1.2, Safari exhibits a bug in
-					which resizing your browser horizontally causes rendering errors in
-					the justified nav that are cleared upon refreshing.</p>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce
-					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-					magna mollis euismod. Donec sed odio dui.</p>
-				<p>
-					<a class="btn btn-primary" href="#" role="button">View details
-						&raquo;</a>
-				</p>
+	<section id="container">
+		<!-- **********************************************************************************************************************************************************
+      TOP BAR CONTENT & NOTIFICATIONS
+      *********************************************************************************************************************************************************** -->
+		<!--header start-->
+		<header class="header black-bg">
+			<div class="sidebar-toggle-box">
+				<div class="fa fa-bars tooltips" data-placement="right"
+					data-original-title="Toggle Navigation"></div>
 			</div>
-			<div class="col-lg-4">
-				<div id="mision-div">
-					<h2>Misi&oacute;</h2>
-					<p>Donec id elit non mi porta gravida at eget metus. Fusce
-						dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-						ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-						magna mollis euismod. Donec sed odio dui.</p>
-					<p>
-						<a class="btn btn-primary" href="#" role="button">View details
-							&raquo;</a>
+			<!--logo start-->
+			<a href="index.html" class="logo"><b><fmt:message key="home.titulo.escuela"/></b></a>
+			<!--logo end-->
+			<div class="nav notify-row" id="top_menu">
+				<!--  notification start -->
+				<ul class="nav top-menu">
+					<!-- settings start -->
+
+					<!-- settings end -->
+					<!-- inbox dropdown start
+					<li id="header_inbox_bar" class="dropdown"><a
+						data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+							<i class="fa fa-envelope-o"></i> <span class="badge bg-theme">5</span>
+					</a>
+						<ul class="dropdown-menu extended inbox">
+							<div class="notify-arrow notify-arrow-green"></div>
+							<li>
+								<p class="green">You have 5 new messages</p>
+							</li>
+							<li>
+								<a href="index.html#"> <span class="photo"><img
+										alt="avatar"
+										src="${pageContext.request.contextPath}/resources/assets/img/User_01.png"></span>
+									<span class="subject"> <span class="from">Juan
+											Jiménez</span> <span class="time">Just now</span>
+									</span> <span class="message"> Hi mate, how is everything? </span>
+								</a>
+							</li>
+							<li><a href="index.html#"> <span class="photo"><img
+										alt="avatar"
+										src="${pageContext.request.contextPath}/resources/assets/img/User_03.png"></span>
+									<span class="subject"> <span class="from">Predro
+											Martinez</span> <span class="time">40 mins.</span>
+								</span> <span class="message"> Hi, I need your help with this. </span>
+							</a></li>
+							<li><a href="index.html#"> <span class="photo"><img
+										alt="avatar"
+										src="${pageContext.request.contextPath}/resources/assets/img/User_02.png"></span>
+									<span class="subject"> <span class="from">Maria
+											Romero</span> <span class="time">2 hrs.</span>
+								</span> <span class="message"> Love your new Dashboard. </span>
+							</a></li>
+
+							<li><a href="index.html#">See all messages</a></li>
+						</ul></li>
+					inbox dropdown end -->
+					
+				</ul>
+				<!--  notification end -->
+			</div>
+			<!-- 
+			<div class="top-menu">
+				<ul class="nav pull-right top-menu">
+					<li><a class="logout" href="login.html"> <span class="glyphicon glyphicon-user"></span> <fmt:message key="home.app.lb.login" /></a></li>
+					<li><a class="logout" href="login.html"><span class="glyphicon glyphicon-edit"></span> <fmt:message key="home.app.lb.registro" /></a></li>
+				</ul>
+			</div>
+			-->
+		</header>
+		<!--header end-->
+
+		<!-- **********************************************************************************************************************************************************
+      MAIN SIDEBAR MENU
+      *********************************************************************************************************************************************************** -->
+		<!--sidebar start-->
+		<aside>
+			<div id="sidebar" class="nav-collapse ">
+				
+				<ul class="sidebar-menu" id="nav-accordion">
+
+					<p class="centered">
+						<a href="profile.html">
+						<img src="${pageContext.request.contextPath}/resources/assets/img/ui-sam.jpg"
+							class="img-circle" width="60"></a>
 					</p>
-				</div>
+					<h5 class="centered"><fmt:message key="home.titulo.escuela" /></h5>
 
-				<div id="vision-div">
-					<h2>Visi&oacute;</h2>
-					<p>Donec id elit non mi porta gravida at eget metus. Fusce
-						dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-						ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-						magna mollis euismod. Donec sed odio dui.</p>
-					<p>
-						<a class="btn btn-primary" href="#" role="button">View details
-							&raquo;</a>
-					</p>
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<h2>Heading</h2>
-				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
-					egestas eget quam. Vestibulum id ligula porta felis euismod semper.
-					Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-					nibh, ut fermentum massa.</p>
-				<p>
-					<a class="btn btn-primary" href="#" role="button">View details
-						&raquo;</a>
-				</p>
-			</div>
-		</div>
+					<li class="mt">
+						<a class="" href="index.html"> 
+							<i class="fa"><span class="glyphicon glyphicon-edit"></span> </i> 
+							<span><fmt:message key="home.app.lb.registro" /></span>
+						</a>
+					</li>
 
-		<!-- Site footer -->
-		<footer class="footer">
-		<p>&copy; 2016 CEC SUR Bachilleres.</p>
+					<li class="mt">
+						<a href="#"> 
+							<i class="fa"> <span class="glyphicon glyphicon-user"></span></i>    
+							<span><fmt:message key="home.app.lb.login" /></span>
+						</a>
+					</li>
+
+					<li class="mt">
+						<a href="#"> 
+							<i class="fa">
+								<span class="glyphicon glyphicon-copyright-mark"></span> 
+							</i> 
+							<span>Power by Gestu@pp</span>
+						</a>
+					</li>
+
+				</ul>
+				
+			</div>
+		</aside>
+		<!-- sidebar end-->
+
+		<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+		<!--main content start-->
+		<section id="main-content">
+			<section class="wrapper">
+
+				<div class="row">
+					<div class="col-lg-9 main-chart">
+
+
+						<div class="row mt">
+							<!-- SERVER STATUS PANELS -->
+
+							<div class="col-md-4 col-sm-4 mb">
+								<div class="white-panel pn">
+									<div class="white-header">
+										<h5>Educar para la vida</h5>
+									</div>
+									<div class="row">
+										<div class="col-sm-4 col-xs-4 goleft">
+											<p>
+												<i class="fa fa-heart"></i> 122
+											</p>
+										</div>
+										<div class="col-sm-4 col-xs-4"></div>
+									</div>
+									<div class="centered">
+
+										<a class="btn"
+											href="https://www.youtube.com/watch?v=hAvPyIfWLPg" data-lity>
+											<img src="${pageContext.request.contextPath}/resources/assets/img/2.png" width="200px" height="100px" />
+										</a>
+									</div>
+								</div>
+							</div>
+							<!-- /col-md-4 -->
+							<div class="col-md-4 col-sm-4 mb">
+								<div class="white-panel pn">
+									<div class="white-header">
+										<h5>Importancia de la Educación</h5>
+									</div>
+									<div class="row">
+										<div class="col-sm-4 col-xs-4 goleft">
+											<p>
+												<i class="fa fa-heart"></i> 122
+											</p>
+										</div>
+										<div class="col-sm-4 col-xs-4"></div>
+									</div>
+									<div class="centered">
+
+										<a class="btn"
+											href="https://www.youtube.com/watch?v=A3fABH5YeOU" data-lity>
+											<img src="${pageContext.request.contextPath}/resources/assets/img/1.png" width="200px" height="100px" />
+										</a>
+									</div>
+								</div>
+							</div>
+							<!-- /col-md-4 -->
+							<div class="col-md-4 col-sm-4 mb">
+								<div class="white-panel pn">
+									<div class="white-header">
+										<h5>Competencias para Educación</h5>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 col-xs-12 goleft">
+											<p>
+												<i class="fa fa-heart"></i> 122
+											</p>
+										</div>
+										<div class="col-sm-12 col-xs-12"></div>
+									</div>
+									<div class="centered">
+										<a class="btn"
+											href="https://www.youtube.com/watch?v=oQlOb63-2HQ" data-lity><img
+											src="${pageContext.request.contextPath}/resources/assets/img/3.png" width="200px" height="100px" /></a>
+									</div>
+								</div>
+							</div>
+							<!-- /col-md-4 -->
+
+
+
+
+						</div>
+						<!-- /row -->
+
+
+						<div class="row">
+							<!-- TWITTER PANEL -->
+
+
+							<div class="col-md-6 col-sm-6 mb">
+								<!-- REVENUE PANEL -->
+								<div class="darkblue-panel pn">
+									<div class="darkblue-header">
+										<h5>Misi&oacute;n</h5>
+									</div>
+									<p class="mt" style="text-align: justify;">
+										<b><fmt:message key="home.text.mision" /></b>
+									</p>
+								</div>
+							</div>
+							<!-- /col-md-4 -->
+							<div class="col-md-6 col-sm-6 mb">
+								<!-- REVENUE PANEL -->
+								<div class="darkblue-panel pn">
+									<div class="darkblue-header">
+										<h5>Visi&oacute;n</h5>
+									</div>
+									<p class="mt" style="text-align: justify;">
+										<b><fmt:message key="home.text.vision" /></b>
+									</p>
+								</div>
+							</div>
+							<!-- /col-md-4 -->
+
+							<div class="col-md-12 col-sm-12 mb">
+								<!-- REVENUE PANEL -->
+								<div class="darkblue-panel pn">
+									<div class="darkblue-header">
+										<h5>Valores</h5>
+									</div>
+									<p class="mt" style="text-align: justify;">
+										<b>Los valores y la educación están ligados, y son
+											escenciales para el cumplimiento de la misión y visión de la
+											Secretaría de Educación, establecer de manera interna y
+											externa el compromiso de todos los actores del sector
+											educativo de conocerlos, difundirlos, apropiarse de ellos,
+											asumirlos y llevarlos a la praxis en el quehacer diario
+											dentro y fuera de las instituciones educativas.</b>
+									</p>
+								</div>
+							</div>
+							<!-- /col-md-4 -->
+
+
+
+						</div>
+						<!-- /row -->
+
+						<div class="row mt">
+							<!--CUSTOM CHART START -->
+
+							<!--custom chart end-->
+						</div>
+						<!-- /row -->
+
+					</div>
+					<!-- /col-lg-9 END SECTION MIDDLE -->
+
+
+					<!-- **********************************************************************************************************************************************************
+      RIGHT SIDEBAR CONTENT
+      *********************************************************************************************************************************************************** -->
+
+					<div class="col-lg-3 ds">
+					
+					<!-- ###### NOTICIAS ####### -->
+						<h3>Noticias</h3>
+					
+						<c:forEach items="${model.noticias}" var="n">
+							<!-- First Action -->
+							<div class="desc">
+								<div class="thumb">
+									<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+								</div>
+								<div class="details">
+									<p>
+										<muted>Vencimiento:<c:out value="${n.strFechaFin}"/></muted>
+										<br /> <a href="#"><c:out value="${n.titulo}"/></a>
+										</br><c:out value="${n.contenido}"/><br />
+									</p>
+								</div>
+							</div>
+					      
+					    </c:forEach>
+					    
+
+						<!-- ### CURSOS #### -->
+						<h3>Cursos</h3>
+						
+						<c:forEach items="${model.cursos}" var="c">
+							<!-- First Action -->
+							<div class="desc">
+								<div class="thumb">
+									<img class="img-circle" src="${pageContext.request.contextPath}/resources/profesor/perfiles/<c:out value="${c.profesor.urlImg}"/>"
+										width="40px" height="40px" align="">
+								</div>
+								<div class="details">
+									<p>
+										<a href="#"><c:out value="${c.asignatura}"/></a><br />
+										<muted>Profesor - <c:out value="${c.profesor.nombreCompleto}"/></muted>
+									</p>
+								</div>
+							</div>
+					      
+					    </c:forEach>
+						
+						
+						<h3>Calendario</h3>
+						<!-- CALENDAR-->
+						<div id="calendar" class="mb">
+							<div class="panel green-panel no-margin">
+								<div class="panel-body">
+									<div id="date-popover" class="popover top"
+										style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
+										<div class="arrow"></div>
+										<h3 class="popover-title" style="disadding: none;"></h3>
+										<div id="date-popover-content" class="popover-content"></div>
+									</div>
+									<div id="my-calendar"></div>
+								</div>
+							</div>
+						</div>
+						<!-- / calendar -->
+
+					</div>
+					<!-- /col-lg-3 -->
+				</div>
+				<! --/row -->
+			</section>
+		</section>
+
+		<!--main content end-->
+		<!--footer start-->
+		<footer class="site-footer">
+			<div class="text-center">
+				<fmt:message key="home.titulo.escuela" /> 
+				<a href="index.html#" class="go-top"> <i
+					class="fa fa-angle-up"></i>
+				</a>
+			</div>
 		</footer>
+		<!--footer end-->
+	</section>
 
-	</div>
-	<!-- /container -->
-	<%@ include file="/WEB-INF/views/assets_foot.jsp"%>
+	
+<script type="text/javascript">
+var eventsInline = ${model.eventoJsonArray};
+</script>
+
+<%@ include file="/WEB-INF/views/footer.jsp"%>
 
 
-	<script src="${pageContext.request.contextPath}/resources/js/home.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			efScrollDown();
-		});
-	</script>
+
 </body>
 </html>
