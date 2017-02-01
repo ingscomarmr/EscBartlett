@@ -104,7 +104,7 @@ public class HomeController {
 		myModel.put("eventoJsonArray", ja.toString());
 		
 		// enviamos un dato al modelo
-		return new ModelAndView("home_vw", "model", myModel);
+		return new ModelAndView("home_tl", "model", myModel);
 	}
 
 }

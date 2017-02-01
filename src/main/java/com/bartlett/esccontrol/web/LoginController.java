@@ -33,17 +33,8 @@ public class LoginController {
 
 		log.info("Returning login view to begin application");
 		
-		log.info("Numero de usuarios:" + usuarioDao.getAll().size());
-		
-		String hora_servidor = (new Date().toString());
-		log.info("Hora del servidor es:" + hora_servidor);
-		Usuario u = new Usuario();
-		u.setUsuarioId(1);
-		u.setUsuarioName(Usuario.uMaster);
-		u.setUsuarioPwd(Usuario.pwdMaster);
-		log.info("Login:" + uServicio.loginUsuario(u));
 		//enviamos un dato al modelo 
-		return new ModelAndView("login_vw","hora_servidor",hora_servidor); 
+		return new ModelAndView("login_tl"); 
 	}
 	
 	public void setIUsuarioService(UsuarioService us){

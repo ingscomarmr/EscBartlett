@@ -20,7 +20,7 @@ public class EventoHome implements Serializable{
 		this.type = "meeting";
 		this.title = e.getTitulo();
 		this.description = e.getMensaje();
-		this.url = "";
+		this.url = "#";
 	}
 	
 	public long getDate() {

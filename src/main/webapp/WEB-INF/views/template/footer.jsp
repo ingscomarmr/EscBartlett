@@ -4,6 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<%-- Redirected because we can't set the welcome page to a virtual URL. --%>
-<!--<c:redirect url="/home.htm"/> -->
-<c:redirect url="/tilesIndex.htm"/>
+<div class="text-center">
+	<fmt:message key="home.titulo.escuela" /> 
+	<a href="index.html#" class="go-top"> 
+		<i class="fa fa-angle-up"></i>
+	</a>
+</div>
