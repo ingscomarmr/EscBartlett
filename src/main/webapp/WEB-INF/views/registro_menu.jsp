@@ -1,3 +1,4 @@
+<!-- #### MENU PARA REGISTO #### -->
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page session="false"%>
@@ -14,9 +15,9 @@
 			<h5 class="centered"><fmt:message key="home.titulo.escuela" /></h5>
 	
 			<li class="mt">
-				<a class="" href="registro.htm"> 
-					<i class="fa"><span class="glyphicon glyphicon-edit"></span> </i> 
-					<span><fmt:message key="menu.registro" /></span>
+				<a href="login.htm"> 
+					<i class="fa"> <span class="glyphicon glyphicon-user"></span></i>    
+					<span><fmt:message key="menu.login" /></span>
 				</a>
 			</li>
 	

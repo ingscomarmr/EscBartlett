@@ -3,8 +3,6 @@ package test.com.bartlett.esccontrol.services;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.Timestamp;
-import java.util.Calendar;
-import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -16,9 +14,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.bartlett.esccontrol.domain.Noticia;
 import com.bartlett.esccontrol.domain.Usuario;
-import com.bartlett.esccontrol.service.NoticiaService;
 import com.bartlett.esccontrol.service.UsuarioService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -30,17 +26,40 @@ public class UsuarioServiceImpTest {
 	@Autowired
 	UsuarioService usuarioService;
 	
+	
+	@Test
+	public void saveTest() throws Exception{
+		log.info("Guardar usuario");
+		Usuario u = new Usuario();
+		u.setNombre("MOI");
+		u.setApellidoPaterno("CONTLE");
+		u.setApellidoMaterno("ISLAS");
+		u.setCurp("");
+		u.setTipoUsuarioId(2);
+		u.setUsuarioName("moi@gmail.com");
+		u.setUsuarioPwd("pass");
+		u.setFechaMod(new Timestamp(System.currentTimeMillis()));
+		u.setEmailAlternativo("moi@gmail2.com");
+		u.setUsuarioMod(1);
+		
+		log.info("# usuario a guardar:" + u.toString());
+		u = usuarioService.guardar(u);
+		
+		assertTrue(u.getUsuarioId() > 0);
+	}	
+	
+	@Ignore
 	@Test
 	public void testGetAll() throws Exception{
 		log.info("obtener lista de noticias");
-		Usuario u = usuarioService.getUsuarioById(1);
+		Usuario u = usuarioService.getUsuarioById(6);
 		
 		assertTrue( u != null);
 		if(u!=null)
-			log.info("usuario obtenidos:" + u.toString());
+			log.info("#####usuario obtenidos:" + u.toString());
 	}
 	
-		
+	@Ignore	
 	@Test
 	@Rollback(value=false)
 	public void eliminarTest() throws Exception{
@@ -62,5 +81,20 @@ public class UsuarioServiceImpTest {
 		}
 		
 		
+	}
+	
+	@Ignore
+	@Test
+	public void buscarEmail(){
+		String email = "luis@gmail.com";
+		log.debug("# buscar usuario por email:" + email);
+		Usuario u = usuarioService.getUsuario(email);
+		if(u == null){
+			log.debug("# no se encontro al usuario con correo:" + email);
+		}else{
+			log.debug("# USUARIO ENCONTRADO:" + u.toString());
+		}
+		
+		assertTrue(u != null);
 	}
 }

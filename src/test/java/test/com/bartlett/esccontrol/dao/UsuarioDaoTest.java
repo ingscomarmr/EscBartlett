@@ -50,7 +50,7 @@ public class UsuarioDaoTest {
 	
 	@Ignore
 	@Test
-	public void testSaveProduct() {
+	public void testSaveProduct() throws Exception{
 		log.info("guardar usuario");
 		Usuario u = new Usuario();
 		u.setUsuarioName("aletse@gmail.com");
@@ -67,7 +67,7 @@ public class UsuarioDaoTest {
 	
 	@Ignore
 	@Test
-	public void testUpdateUsuario(){
+	public void testUpdateUsuario() throws Exception{
 		log.info("Actualizar informacion");
 		Usuario u = usuarioDao.findUsuarioById(7);
 		log.info("usuario encontrado:" + u.toString());

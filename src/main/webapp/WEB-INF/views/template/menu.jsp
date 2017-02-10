@@ -14,16 +14,16 @@
 			<h5 class="centered"><fmt:message key="home.titulo.escuela" /></h5>
 	
 			<li class="mt">
-				<a class="" href="#"> 
+				<a class="" href="registro.htm"> 
 					<i class="fa"><span class="glyphicon glyphicon-edit"></span> </i> 
-					<span><fmt:message key="home.app.lb.registro" /></span>
+					<span><fmt:message key="menu.registro" /></span>
 				</a>
 			</li>
 	
 			<li class="mt">
 				<a href="login.htm"> 
 					<i class="fa"> <span class="glyphicon glyphicon-user"></span></i>    
-					<span><fmt:message key="home.app.lb.login" /></span>
+					<span><fmt:message key="menu.login" /></span>
 				</a>
 			</li>
 	
@@ -32,7 +32,7 @@
 					<i class="fa">
 						<span class="glyphicon glyphicon-copyright-mark"></span> 
 					</i> 
-					<span>Power by Gestu@pp</span>
+					<span><fmt:message key="app.lb.powerby" /></span>
 				</a>
 			</li>
 	</ul>

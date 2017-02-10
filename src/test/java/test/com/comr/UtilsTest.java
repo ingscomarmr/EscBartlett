@@ -31,12 +31,19 @@ public class UtilsTest {
 		}
 		assertTrue(ok);
 	}
-	
+	@Ignore
 	@Test
 	public void timeMilisegundos(){
 		Calendar c = Calendar.getInstance();
 		c.add(Calendar.DAY_OF_YEAR, -2);
 		log.info("#="  + c.getTimeInMillis());
 		assertTrue(c.getTimeInMillis() > 0);
+	}
+	
+	@Test
+	public void formatFolioTest(){
+		int i = 10;
+		log.info("#Formatear 10 a folio:" + Utils.formatFolio(i));
+		assertTrue(true);
 	}
 }

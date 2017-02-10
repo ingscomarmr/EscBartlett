@@ -13,18 +13,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @NamedQueries({
 	@NamedQuery(name="findUsuarioById", query="select u from Usuario u where u.usuarioId=:id"),
 	@NamedQuery(name="findAllUsuario", query="select u from Usuario u order by u.usuarioId"),
+	@NamedQuery(name="findByEmail", query="select u from Usuario u where u.usuarioName=:email"),
 })
 
 @Table(name = "usuario")
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	public static final int ID_ADMIN = 1;
 	public static final String uMaster = "ingscomar@gmail.com";
 	public static final String pwdMaster = "0marAdmin";
 
@@ -35,8 +38,6 @@ public class Usuario implements Serializable {
 		this.usuarioId = usuarioId;
 	}
 	
-	
-
 	@Id
 	@Column(name = "usuario_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -69,6 +70,10 @@ public class Usuario implements Serializable {
 	private Timestamp fechaMod;
 	private short eliminado;
 	
+	//valor solo informativo usado para los RequestBody del controller
+	@Transient
+	private int tipoUsuarioId;
+	
 	public int getUsuarioId() {
 		return usuarioId;
 	}
@@ -94,19 +99,23 @@ public class Usuario implements Serializable {
 	}
 	
 	public TipoUsuario getTipoUsuario() {
+		if(this.tipoUsuario == null){
+			if(this.tipoUsuarioId > 0)
+				this.tipoUsuario = new TipoUsuario(this.tipoUsuarioId);
+		}
 		return tipoUsuario;
 	}
-
+	
 	public void setTipoUsuario(TipoUsuario tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
-	}
-
+	}		
 
 	public String getNombre() {
 		return nombre;
 	}
 
 	public void setNombre(String nombre) {
+		System.out.println("# setNombre");
 		this.nombre = nombre;
 	}
 
@@ -119,10 +128,12 @@ public class Usuario implements Serializable {
 	}
 
 	public String getApellidoMaterno() {
+		
 		return apellidoMaterno;
 	}
 
 	public void setApellidoMaterno(String apellidoMaterno) {
+		System.out.println("# setApellidoMaterno");
 		this.apellidoMaterno = apellidoMaterno;
 	}
 
@@ -147,6 +158,7 @@ public class Usuario implements Serializable {
 	}
 
 	public void setUrlImg(String urlImg) {
+		//System.out.println("# getUrlImg");
 		this.urlImg = urlImg;
 	}
 
@@ -184,22 +196,26 @@ public class Usuario implements Serializable {
 		}
 		return nombreCompleto;
 	}
+
 	
-	public String toString() {
-		StringBuilder sb = new StringBuilder("Usuario:{");
-		sb.append("Id: ").append(usuarioId).append(",");
-		sb.append("usuarioName: ").append(usuarioName).append(",");
-		sb.append("usuarioPwd: ").append(this.usuarioPwd).append(",");
-		sb.append("tipoUsuario: ").append(tipoUsuario.toString()).append(",");
-		sb.append("nombre: ").append(nombre).append(",");
-		sb.append("apllido paterno: ").append(apellidoPaterno).append(",");
-		sb.append("apellido materno: ").append(apellidoMaterno).append(",");
-		sb.append("curp: ").append(curp).append(",");
-		sb.append("email alternativo: ").append(emailAlternativo).append(",");
-		sb.append("foto perfil: ").append(urlImg).append(",");
-		sb.append("usuarioMod: ").append(usuarioMod).append(",");
-		sb.append("fechaMod: ").append(fechaMod.toString()).append(",");
-		sb.append("eliminado: ").append(eliminado).append("}");
-		return sb.toString();
+	@Transient
+	public void setTipoUsuarioId(int tipoUsuarioId){
+		this.tipoUsuarioId = tipoUsuarioId;
+		this.tipoUsuario = new TipoUsuario(tipoUsuarioId);
 	}
+	
+	@Transient
+	public int getTipoUsuarioId(){		
+		return tipoUsuarioId;
+	}
+	
+	@Override
+	public String toString() {
+		return "Usuario [usuarioId=" + usuarioId + ", usuarioName=" + usuarioName + ", usuarioPwd=" + usuarioPwd
+				+ ", nombre=" + nombre + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno
+				+ ", curp=" + curp + ", emailAlternativo=" + emailAlternativo + ", urlImg=" + urlImg + ", tipoUsuario="
+				+ tipoUsuario + ", usuarioMod=" + usuarioMod + ", fechaMod=" + fechaMod + ", eliminado=" + eliminado
+				+ ", tipoUsuarioId=" + tipoUsuarioId + "]";
+	}
+
 }

@@ -3,8 +3,6 @@ package com.bartlett.esccontrol.service;
 import com.bartlett.esccontrol.domain.Usuario;
 import com.bartlett.esccontrol.repository.UsuarioDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,8 +43,14 @@ public class UsuarioServiceImp implements UsuarioService{
 	}
 
 	@Override
-	public Usuario guardar(Usuario u) {
+	public Usuario guardar(Usuario u) throws Exception {
 		return usuarioDao.save(u);
+	}
+
+	@Override
+	public Usuario getUsuario(String email) {
+		return usuarioDao.findByEmail(email);
 	}	
 
+	
 }

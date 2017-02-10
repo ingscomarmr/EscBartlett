@@ -4,16 +4,11 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bartlett.esccontrol.domain.Noticia;
-import com.bartlett.esccontrol.domain.Usuario;;
+import com.bartlett.esccontrol.domain.Usuario;
 
 @Service
 @Transactional
@@ -43,8 +38,17 @@ public class UsuarioDaoImp implements UsuarioDao {
 
 	@Transactional(readOnly = false)
 	@Override
-	public Usuario save(Usuario usuario) {
+	public Usuario save(Usuario usuario) throws Exception{
+		if(usuario == null){
+			String msg = "Datos de usuario no validos";
+			throw new Exception(msg);
+		}
 		// TODO Auto-generated method stub
+		Usuario u = findByEmail(usuario.getUsuarioName());
+		if(u != null){
+			String msg = "Ya existe un usuario registrado con información similar, por favor verifique su información, si el problema persiste contacte al administrador.";
+			throw new Exception(msg);
+		}
 		return (Usuario) em.merge(usuario);
 	}
 	
@@ -64,4 +68,17 @@ public class UsuarioDaoImp implements UsuarioDao {
 		return em.find(Usuario.class, id);
 	}
 
+	@Override
+	public Usuario findByEmail(String email) {
+		// TODO Auto-generated method stub	
+		List<Usuario> uLis = em.createNamedQuery("findByEmail", Usuario.class)
+				.setParameter("email", email).getResultList();
+		if(uLis != null && uLis.size() > 0){
+			return uLis.get(0);
+		}
+			
+		return null;
+	}
+
+	
 }

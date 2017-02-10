@@ -14,11 +14,18 @@ import javax.persistence.Table;
 public class TipoUsuario implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	
 	@Id
 	@Column(name="tipo_usuario_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nombre;
+	
+	public TipoUsuario(){}
+	
+	public TipoUsuario(int id){
+		this.id = id;
+	}
 	
 	public int getId() {
 		return id;

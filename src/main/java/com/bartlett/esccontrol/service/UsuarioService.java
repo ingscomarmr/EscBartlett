@@ -12,6 +12,7 @@ public interface UsuarioService extends Serializable{
 	
 	public void eliminar(int id);
 	
-	public Usuario guardar(Usuario u);
+	public Usuario guardar(Usuario u) throws Exception;
 
+	public Usuario getUsuario(String email);
 }

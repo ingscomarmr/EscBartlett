@@ -15,6 +15,7 @@
 	<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.sparkline.js"></script>
 
+	<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.serializejson.min.js"></script>
 
 	<!--common script for all pages-->
 	<script src="${pageContext.request.contextPath}/resources/assets/js/common-scripts.js"></script>
@@ -29,7 +30,8 @@
 
 	<script src="${pageContext.request.contextPath}/resources/assets/event-calendar/jquery.eventCalendar.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets/event-calendar/moment.js"></script>
-
+	
+	
 	<script type="application/javascript">
         $(document).ready(function () {
             $("#date-popover").popover({html: true, trigger: "manual"});
