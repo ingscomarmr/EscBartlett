@@ -14,13 +14,13 @@
 			</h4>
 			<div style="padding: 20px;" id="form-olvidado">
 				<form accept-charset="UTF-8" role="form" id="login-form"
-					method="post">
+					method="POST" action="${contextPath}/logon.htm">
 					<fieldset>
 						<div class="form-group input-group">
 							<span class="input-group-addon"> @ </span> <input
 								class="form-control"
 								placeholder="<fmt:message key="login.lb.usuario" />"
-								name="email" type="email" required="" autofocus="">
+								name="username" type="email" required="" autofocus="">
 						</div>
 						<div class="form-group input-group">
 							<span class="input-group-addon"> <i
@@ -28,6 +28,7 @@
 							</span> <input class="form-control"
 								placeholder="<fmt:message key="login.lb.password" />"
 								name="password" type="password" value="" required="">
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary btn-block">

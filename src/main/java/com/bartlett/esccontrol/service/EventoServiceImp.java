@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bartlett.esccontrol.BeanModel.EventoHome;
+import com.bartlett.esccontrol.beanmodel.EventoHome;
 import com.bartlett.esccontrol.domain.Evento;
 import com.bartlett.esccontrol.repository.EventoDao;
 

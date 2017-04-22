@@ -19,8 +19,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bartlett.esccontrol.BeanModel.CursosHome;
-import com.bartlett.esccontrol.BeanModel.EventoHome;
+import com.bartlett.esccontrol.beanmodel.CursosHome;
+import com.bartlett.esccontrol.beanmodel.EventoHome;
 import com.bartlett.esccontrol.domain.Curso;
 import com.bartlett.esccontrol.domain.Noticia;
 import com.bartlett.esccontrol.domain.Usuario;

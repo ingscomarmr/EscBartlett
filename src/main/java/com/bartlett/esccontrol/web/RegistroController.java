@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bartlett.esccontrol.BeanModel.ResponseModel;
+import com.bartlett.esccontrol.beanmodel.ResponseModel;
 import com.bartlett.esccontrol.domain.TipoUsuario;
 import com.bartlett.esccontrol.domain.Usuario;
 import com.bartlett.esccontrol.service.UsuarioService;
@@ -79,6 +79,7 @@ public class RegistroController {
 				String msg = "La contraseña no puede ser menor a 6 dígitos";
 				throw new Exception(Utils.strToHtmlCode(msg));
 			}
+			//u.setUsuarioPwd(UtilsEncrypt.encrypt(u.getUsuarioPwd()));
 			u.setUsuarioPwd(UtilsEncrypt.encrypt(u.getUsuarioPwd()));
 			u.setUsuarioMod(Usuario.ID_ADMIN);
 			u.setFechaMod(new Timestamp(System.currentTimeMillis()));

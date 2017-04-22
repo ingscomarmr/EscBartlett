@@ -3,7 +3,7 @@ package com.bartlett.esccontrol.service;
 import java.sql.Timestamp;
 import java.util.List;
 
-import com.bartlett.esccontrol.BeanModel.EventoHome;
+import com.bartlett.esccontrol.beanmodel.EventoHome;
 import com.bartlett.esccontrol.domain.Evento;
 
 public interface EventoService {

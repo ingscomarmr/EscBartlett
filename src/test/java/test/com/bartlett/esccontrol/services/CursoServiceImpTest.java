@@ -15,7 +15,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.bartlett.esccontrol.BeanModel.CursosHome;
+import com.bartlett.esccontrol.beanmodel.CursosHome;
 import com.bartlett.esccontrol.domain.AreaTematica;
 import com.bartlett.esccontrol.domain.Curso;
 import com.bartlett.esccontrol.domain.Grado;

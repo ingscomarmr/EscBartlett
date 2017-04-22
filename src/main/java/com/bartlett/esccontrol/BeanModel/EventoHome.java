@@ -1,4 +1,4 @@
-package com.bartlett.esccontrol.BeanModel;
+package com.bartlett.esccontrol.beanmodel;
 
 import java.io.Serializable;
 

@@ -5,15 +5,38 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://java.sun.com/xml/ns/j2ee/web-app_2_5.xsd"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/j2ee/web-app_2_5.xsd">
 
-	<!-- AGREGAR PARA CONTEXTO DE DATOS -->
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring/applicationContext.xml</param-value>
-	</context-param>
 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	
+	<listener>
+		<listener-class>
+			org.springframework.security.web.session.HttpSessionEventPublisher
+		</listener-class>
+	</listener>
+	
+	
+	<!-- AGREGAR PARA CONTEXTO DE DATOS 
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/spring/spring-servlet.xml
+			/WEB-INF/spring/applicationContext.xml
+			/WEB-INF/spring/appconfig-security.xml
+		</param-value>
+	</context-param>
+	-->
+	<!-- PARA SRPING SECURITY Begin{ -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- PARA SRPING SECURITY End{ -->
 
 
 	<display-name>Springapp</display-name>
@@ -21,10 +44,18 @@
 	<servlet>
 		<servlet-name>springapp</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- 
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>/WEB-INF/spring/spring-servlet.xml</param-value>
 		</init-param>
+		 -->
+		 	<param-name>contextConfigLocation</param-name>
+			<param-value>
+				/WEB-INF/spring/spring-servlet.xml
+				/WEB-INF/spring/applicationContext.xml
+				/WEB-INF/spring/appconfig-security.xml
+			</param-value>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
@@ -37,5 +68,11 @@
 		<param-name>log4jConfigLocation</param-name>
 		<param-value>/WEB-INF/classes/log4j.xml</param-value>
 	</context-param>
+
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
+
+	
 
 </web-app>

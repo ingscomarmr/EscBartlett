@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bartlett.esccontrol.BeanModel.CursosHome;
+import com.bartlett.esccontrol.beanmodel.CursosHome;
 import com.bartlett.esccontrol.domain.Curso;
 import com.bartlett.esccontrol.repository.CursoDao;
 

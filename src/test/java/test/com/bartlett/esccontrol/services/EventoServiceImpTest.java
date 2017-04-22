@@ -16,7 +16,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.bartlett.esccontrol.BeanModel.EventoHome;
+import com.bartlett.esccontrol.beanmodel.EventoHome;
 import com.bartlett.esccontrol.domain.Evento;
 import com.bartlett.esccontrol.service.EventoService;
 

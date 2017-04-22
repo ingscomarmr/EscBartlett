@@ -42,7 +42,12 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <!-- Scans the classpath of this application for @Components to deploy as beans -->
-    <context:component-scan base-package="com.bartlett.esccontrol.repository" />
-    <context:component-scan base-package="com.bartlett.esccontrol.service" />
+    <!-- Scans the classpath of this application for @Components to deploy as beans -->
+    <context:component-scan base-package="com.bartlett.esccontrol.domain" />
+	<context:component-scan base-package="com.bartlett.esccontrol.repository" />
+	<context:component-scan base-package="com.bartlett.esccontrol.service" />
+	<context:component-scan base-package="com.bartlett.esccontrol.web" />
+	<context:component-scan base-package="com.bartlett.esccontrol.filter" />
+	<context:component-scan base-package="com.bartlett.esccontrol.security" />
 
 </beans>

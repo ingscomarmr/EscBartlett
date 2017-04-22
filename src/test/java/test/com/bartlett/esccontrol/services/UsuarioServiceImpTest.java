@@ -26,7 +26,7 @@ public class UsuarioServiceImpTest {
 	@Autowired
 	UsuarioService usuarioService;
 	
-	
+	@Ignore
 	@Test
 	public void saveTest() throws Exception{
 		log.info("Guardar usuario");
@@ -83,10 +83,10 @@ public class UsuarioServiceImpTest {
 		
 	}
 	
-	@Ignore
+	
 	@Test
 	public void buscarEmail(){
-		String email = "luis@gmail.com";
+		String email = "admin@sisescolar.com";
 		log.debug("# buscar usuario por email:" + email);
 		Usuario u = usuarioService.getUsuario(email);
 		if(u == null){

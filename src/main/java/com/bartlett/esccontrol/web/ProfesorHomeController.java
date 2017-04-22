@@ -19,7 +19,7 @@ public class ProfesorHomeController {
 	//https://hellokoding.com/registration-and-login-example-with-spring-xml-configuration-maven-jsp-and-mysql/
 	protected final Log log = LogFactory.getLog(getClass());
 	
-	@RequestMapping(value = "/profesorhome.htm")
+	@RequestMapping(value = "/profesor/profesorhome.htm")
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		log.debug("# PROFESOR HOME");

@@ -2,7 +2,7 @@ package com.bartlett.esccontrol.service;
 
 import java.util.List;
 
-import com.bartlett.esccontrol.BeanModel.CursosHome;
+import com.bartlett.esccontrol.beanmodel.CursosHome;
 import com.bartlett.esccontrol.domain.Curso;
 
 
