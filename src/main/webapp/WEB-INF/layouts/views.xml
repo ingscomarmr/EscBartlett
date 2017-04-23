@@ -3,34 +3,35 @@
     "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
     "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
- 
- 	<definition name="home_tl" extends="DefaultTemplate">
- 		<put-attribute name="title" value="Home" />
-        <put-attribute name="body" value="/WEB-INF/views/home_vw.jsp" />
-    </definition>
-    
-    <definition name="login_tl" extends="DefaultTemplate">
-    	<put-attribute name="title" value="Login" />
-    	<put-attribute name="body" value="/WEB-INF/views/login_vw.jsp" />
-        <put-attribute name="menu" value="/WEB-INF/views/login_menu.jsp" />
-    </definition>
- 
- 	 <definition name="registro_tl" extends="DefaultTemplate">
-    	<put-attribute name="title" value="Registro" />
-    	<put-attribute name="body" value="/WEB-INF/views/registro_vw.jsp" />
-        <put-attribute name="menu" value="/WEB-INF/views/registro_menu.jsp" />
-    </definition>
-    
-    <definition name="profesor_home_tl" extends="DefaultTemplate">
-    	<put-attribute name="title" value="Home Profesor" />
-    	<put-attribute name="body" value="/WEB-INF/views/profesor_home_vw.jsp" />
-        <put-attribute name="menu" value="/WEB-INF/views/profesor_home_menu.jsp" />
-    </definition>
-    
-    <definition name="noticias_tl" extends="DefaultTemplate">
-        <put-attribute name="body"    
-        value="/WEB-INF/views/noticias_vw.jsp" />
-    </definition>
-    
-    
+
+	<definition name="home_tl" extends="DefaultTemplate">
+		<put-attribute name="title" value="Home" />
+		<put-attribute name="body" value="/WEB-INF/views/home_vw.jsp" />
+	</definition>
+
+	<definition name="login_tl" extends="DefaultTemplate">
+		<put-attribute name="title" value="Login" />
+		<put-attribute name="body" value="/WEB-INF/views/login_vw.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/login_menu.jsp" />
+	</definition>
+
+	<definition name="registro_tl" extends="DefaultTemplate">
+		<put-attribute name="title" value="Registro" />
+		<put-attribute name="body" value="/WEB-INF/views/registro_vw.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/registro_menu.jsp" />
+	</definition>
+
+	<definition name="profesor_home_tl" extends="DefaultTemplate">
+		<put-attribute name="title" value="Home Profesor" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/profesor_home_vw.jsp" />
+		<put-attribute name="menu"
+			value="/WEB-INF/views/profesor_home_menu.jsp" />
+	</definition>
+
+	<definition name="noticias_tl" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/noticias_vw.jsp" />
+	</definition>
+
+
 </tiles-definitions>

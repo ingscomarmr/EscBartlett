@@ -20,14 +20,14 @@
 							<span class="input-group-addon"> @ </span> <input
 								class="form-control"
 								placeholder="<fmt:message key="login.lb.usuario" />"
-								name="username" type="email" required="" autofocus="">
+								id="username" name="username" type="email" required="" autofocus="">
 						</div>
 						<div class="form-group input-group">
 							<span class="input-group-addon"> <i
 								class="glyphicon glyphicon-lock"> </i>
 							</span> <input class="form-control"
 								placeholder="<fmt:message key="login.lb.password" />"
-								name="password" type="password" value="" required="">
+								id="password" name="password" type="password" value="" required="">
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 						</div>
 						<div class="form-group">

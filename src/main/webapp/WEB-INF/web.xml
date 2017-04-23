@@ -9,15 +9,8 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	
-	<listener>
-		<listener-class>
-			org.springframework.security.web.session.HttpSessionEventPublisher
-		</listener-class>
-	</listener>
-	
-	
-	<!-- AGREGAR PARA CONTEXTO DE DATOS 
+
+	<!-- AGREGAR PARA CONTEXTO DE DATOS -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
@@ -26,7 +19,7 @@
 			/WEB-INF/spring/appconfig-security.xml
 		</param-value>
 	</context-param>
-	-->
+
 	<!-- PARA SRPING SECURITY Begin{ -->
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
@@ -38,41 +31,29 @@
 	</filter-mapping>
 	<!-- PARA SRPING SECURITY End{ -->
 
-
-	<display-name>Springapp</display-name>
-
 	<servlet>
-		<servlet-name>springapp</servlet-name>
+		<servlet-name>DispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<!-- 
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>/WEB-INF/spring/spring-servlet.xml</param-value>
 		</init-param>
-		 -->
-		 	<param-name>contextConfigLocation</param-name>
-			<param-value>
-				/WEB-INF/spring/spring-servlet.xml
-				/WEB-INF/spring/applicationContext.xml
-				/WEB-INF/spring/appconfig-security.xml
-			</param-value>
+
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>springapp</servlet-name>
-		<url-pattern>*.htm</url-pattern>
+		<servlet-name>DispatcherServlet</servlet-name>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+
+	
+	<!-- servlet-mapping> <servlet-name>springapp</servlet-name> <url-pattern>*.htm</url-pattern> 
+		</servlet-mapping -->
 
 	<context-param>
 		<param-name>log4jConfigLocation</param-name>
-		<param-value>/WEB-INF/classes/log4j.xml</param-value>
+		<param-value>/WEB-INF/spring/log4j.xml</param-value>
 	</context-param>
-
-	<session-config>
-		<session-timeout>60</session-timeout>
-	</session-config>
-
-	
 
 </web-app>

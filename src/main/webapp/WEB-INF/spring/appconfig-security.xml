@@ -1,36 +1,48 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:security="http://www.springframework.org/schema/security"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd">
-	
-	<security:global-method-security secured-annotations="enabled"/>
-	
-	<security:http pattern="/resources/**" security="none" />
-	
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<security:global-method-security
+		secured-annotations="enabled" />
+
+	<security:http pattern="/assets/**" security="none"/>	
+		         
 	<security:http auto-config="true" use-expressions="true">
-		<security:form-login 
-			authentication-failure-url="/"
-			login-page="/login.htm"
-			default-target-url="/" />
-		<security:intercept-url pattern="/home.htm" access="hasRole('ROLE_MEMBER')"/>
-		<security:intercept-url pattern="/login.htm" access="permitAll"/>
-		<security:intercept-url pattern="/profesor/**" access="hasRole('ROLE_MEMBER')"/>
-		<!-- security:intercept-url pattern="/**" access="isAnonymous()"/-->				
+		<security:intercept-url pattern="/index.jsp" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/home.htm" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/logout.htm" access="permitAll" />
+		<security:intercept-url pattern="/login.htm" access="permitAll" />
+		<security:intercept-url pattern="/registro.htm" access="permitAll" />		
+		<security:intercept-url pattern="/**" access="permitAll" />
+		
+		<security:logout logout-success-url="/login?logout" logout-url="/logout" />
+		<security:form-login authentication-failure-url="/login?error"
+			login-page="/login.htm" login-processing-url="/login.htm" password-parameter="password"
+			username-parameter="username" />
 	</security:http>
 	
-	<bean id="sfAuthenticationProvider" 
-		  autowire="byType"
-		  class="com.bartlett.esccontrol.security.SFAuthenticationProvider"/>
+	<!-- <security:http auto-config="true" use-expressions="true"> <security:form-login 
+		authentication-failure-url="/" login-page="/login.htm" default-target-url="/" 
+		/> <security:intercept-url pattern="/resources/**" access="permitAll"/> <security:intercept-url 
+		pattern="/home.htm" access="hasRole('ROLE_ADMIN')"/> <security:intercept-url 
+		pattern="/login.htm" access="permitAll" /> </security:http> -->
 	
-	
+
+	<bean id="sfAuthenticationProvider" autowire="byType"
+		class="com.bartlett.esccontrol.security.SFAuthenticationProvider" />
+
+
 	<security:authentication-manager>
-		<security:authentication-provider ref="sfAuthenticationProvider"/>
+		<security:authentication-provider
+			ref="sfAuthenticationProvider" />
 		<security:authentication-provider>
 			<security:user-service>
-				<security:user name="jimmy" password="hendrix" authorities="ROLE_MEMBER"/>
-				<security:user name="admin@sisescolar.com" password="admin" authorities="ROLE_MEMBER,ROLE_ADMIN"/>
+				<security:user name="jimmy" password="hendrix"
+					authorities="ROLE_MEMBER" />
+				<security:user name="admin@sisescolar.com" password="admin"
+					authorities="ROLE_MEMBER,ROLE_ADMIN" />
 			</security:user-service>
 		</security:authentication-provider>
 	</security:authentication-manager>
