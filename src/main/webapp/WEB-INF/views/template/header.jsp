@@ -4,7 +4,7 @@
 <%@ page session="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <div class="sidebar-toggle-box">
 	<div class="fa fa-bars tooltips" data-placement="right"
 		data-original-title="Toggle Navigation"></div>
@@ -60,11 +60,18 @@
 	</ul>
 	<!--  notification end -->
 </div>
-<!-- 
-<div class="top-menu">
-	<ul class="nav pull-right top-menu">
-		<li><a class="logout" href="login.html"> <span class="glyphicon glyphicon-user"></span> <fmt:message key="home.app.lb.login" /></a></li>
-		<li><a class="logout" href="login.html"><span class="glyphicon glyphicon-edit"></span> <fmt:message key="home.app.lb.registro" /></a></li>
-	</ul>
-</div>
--->
+
+ <sec:authorize access="isAuthenticated()">
+ 	<c:url value="/logout" var="logoutUrl"/>
+ 	<form accept-charset="UTF-8"
+					action="${logoutUrl}" method="post">
+		<div class="top-menu">
+			<ul class="nav pull-right top-menu">
+				 <!-- <li><a class="logout" href="${logoutUrl}"> <span class="glyphicon glyphicon-user"></span> Salir with url</a></li>  -->
+				<li><button class="logout" type="submit"><span class="glyphicon glyphicon-user"></span> <fmt:message key="menu.logout" /> </button></li>			
+			</ul>
+		</div>
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+	</form>
+	
+</sec:authorize>

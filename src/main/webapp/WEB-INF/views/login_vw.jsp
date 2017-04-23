@@ -3,6 +3,7 @@
 <%@ page session="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <div class="container">
 	<div class="row">
@@ -13,8 +14,9 @@
 				<fmt:message key="login.title.iniciar" />
 			</h4>
 			<div style="padding: 20px;" id="form-olvidado">
+				<c:url value="/login" var="loginUrl"/>
 				<form accept-charset="UTF-8" role="form" id="login-form"
-					method="POST" action="${contextPath}/logon.htm">
+					action="${loginUrl}" method="post">
 					<fieldset>
 						<div class="form-group input-group">
 							<span class="input-group-addon"> @ </span> <input
@@ -28,7 +30,9 @@
 							</span> <input class="form-control"
 								placeholder="<fmt:message key="login.lb.password" />"
 								id="password" name="password" type="password" value="" required="">
-								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							<input type="hidden"                        
+						        name="${_csrf.parameterName}"
+						        value="${_csrf.token}"/>
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary btn-block">
